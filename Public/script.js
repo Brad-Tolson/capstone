@@ -177,7 +177,6 @@ const returnToDeckButton = document.querySelector('button[data-action="return-to
 returnToDeckButton.addEventListener("click", returnToDeck);
 
 function clearDeck() {
-  // Remove all child nodes of deckList
   while (deckList.firstChild) {
     deckList.removeChild(deckList.firstChild);
   }
