@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderDeckList();
 });
 
-
 function deleteCard(card) {
   const index = deck.indexOf(card);
   if (index > -1) {
