@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Deck Builder</title>
-	<link rel="stylesheet" type="text/css" href="/css">
+    <title>Deck Builder</title>
+    <link rel="stylesheet" type="text/css" href="/css">
 </head>
 <body>
-	<div class="container">
-		<div class="deck-builder">
-			<h1>Deck Builder</h1>
-		</div>
-		<div class="form-container">
-			<h2>Add Cards</h2>
-			<label for="card-name">Card Name:</label>
-			<input type="text" id="card-name" name="card-name">
-			<button data-action="add-card">Add Card</button>
-			<h2>Add Lands</h2>
-			<label for="land-count">Land Count:</label>
-			<input type="number" id="land-count" name="land-count">
-			<label for="land-color">Land Color:</label>
-			<select id="land-color" name="land-color">
-				<option value="Plains">Plains</option>
-				<option value="Island">Island</option>
-				<option value="swamp">Swamp</option>
-				<option value="Mountain">Mountain</option>
-				<option value="forest">Forest</option>
-			</select>
-			<button data-action="add-lands">Add Lands</button>
-		</div>
-		<div class="deck-container">
-			<div class="deck-list-section">
-			  <h2>Deck List</h2>
-			  <ul id="deck-list"></ul>
-			  <button data-action="get-random-cards">Get 7 Random Cards</button>
-			  <button data-action="draw-card">Draw Card</button>
-			  <button data-action="clear-deck">Clear Deck</button>
-			  <button data-action="return-to-deck">Return to Deck</button>
-			</div>
-			<div class="hand-section">
-				<h2>Hand</h2>
-				<div id="hand-container"></div>
-			  </div>
-		</div>
-	</div>
-	<script src="/js"></script>
+    <div class="container">
+        <div class="deck-builder">
+            <h1>Deck Builder</h1>
+        </div>
+        <div class="form-container">
+            <div class="card-section">
+              <h2>Add Cards</h2>
+              <label for="card-name">Card Name:</label>
+              <input type="text" id="card-name">
+              <button id="add-card-btn">Add Card</button>
+            </div>
+            <div class="land-section">
+              <h2>Add Lands</h2>
+              <label for="land-count">Land Count:</label>
+              <input type="number" id="land-count">
+              <label for="land-color">Land Color:</label>
+              <select id="land-color">
+                <option value="Plains">Plains</option>
+                <option value="Island">Island</option>
+                <option value="Swamp">Swamp</option>
+                <option value="Mountain">Mountain</option>
+                <option value="Forest">Forest</option>
+              </select>
+              <button id="add-land-btn">Add Land</button>
+            </div>
+          </div>
+          
+        <div class="deck-controls-container">
+            <button id="draw-card-btn" data-action="draw-card">Draw Card</button>
+            <button id="clear-deck-btn" data-action="clear-deck">Clear Deck</button>
+            <button id="return-to-deck-btn" data-action="return-to-deck">Return to Deck</button>
+        </div>
+        <div class="deck-container">
+            <div class="deck-list-section">
+              <h2>Deck List</h2>
+              <ul id="deck-list"></ul>
+            </div>
+            <div class="hand-section">
+                <h2>Hand</h2>
+                <div id="hand-container"></div>
+            </div>
+        </div>
+    </div>
+    <script src="/js"></script>
 </body>
 </html>
-

@@ -7,7 +7,66 @@ const cardCounts = {};
 
 let hand = [];
 
-const defaultDeck = ["Card A", "Card B", "Card C", "Card D", "Card E", "Land", "Land", "Land"];
+const defaultDeck = [ "Arid Mesa",
+"Arid Mesa",
+"Bloodstained Mire",
+"Bloodstained Mire",
+"Bloodstained Mire",
+"Boros Charm",
+"Boros Charm",
+"Boros Charm",
+"Boros Charm",
+"Eidolon of the Great Revel",
+"Eidolon of the Great Revel",
+"Eidolon of the Great Revel",
+"Eidolon of the Great Revel",
+"Fiery Islet",
+"Goblin Guide",
+"Goblin Guide",
+"Goblin Guide",
+"Goblin Guide",
+"Inspiring Vantage",
+"Inspiring Vantage",
+"Inspiring Vantage",
+"Inspiring Vantage",
+"Lava Spike",
+"Lava Spike",
+"Lava Spike",
+"Lava Spike",
+"Lightning Bolt",
+"Lightning Bolt",
+"Lightning Bolt",
+"Lightning Bolt",
+"Lightning Helix",
+"Lightning Helix",
+"Monastery Swiftspear",
+"Monastery Swiftspear",
+"Monastery Swiftspear",
+"Monastery Swiftspear",
+"Mountain",
+"Mountain",
+"Mountain",
+"Rift Bolt",
+"Rift Bolt",
+"Rift Bolt",
+"Rift Bolt",
+"Sacred Foundry",
+"Sacred Foundry",
+"Searing Blaze",
+"Searing Blaze",
+"Searing Blaze",
+"Searing Blaze",
+"Skewer the Critics",
+"Skewer the Critics",
+"Skewer the Critics",
+"Skewer the Critics",
+"Skullcrack",
+"Skullcrack",
+"Sunbaked Canyon",
+"Sunbaked Canyon",
+"Sunbaked Canyon",
+"Sunbaked Canyon",
+"Wooded Foothills"];
 
 let deck = defaultDeck;
 
@@ -34,6 +93,7 @@ function renderDeckList() {
 
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "Delete";
+    deleteButton.style.marginLeft = "10px"; 
     deleteButton.addEventListener("click", () => {
       deleteCard(card);
       renderDeckList(); 
@@ -43,6 +103,7 @@ function renderDeckList() {
     deckList.appendChild(li);
   });
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   renderDeckList();
@@ -90,7 +151,7 @@ function addCard() {
   renderDeckList();
 }
 
-const addCardButton = document.querySelector('button[data-action="add-card"]');
+const addCardButton = document.getElementById("add-card-btn");
 addCardButton.addEventListener("click", addCard);
 
 function addLands() {
@@ -117,29 +178,8 @@ function addLands() {
   renderDeckList();
 }
 
-const addLandsButton = document.querySelector('button[data-action="add-lands"]');
-addLandsButton.addEventListener("click", addLands);
-
-function getRandomCards(numCards = 7) {
-  if (deck.length < numCards) {
-    alert("Deck does not have enough cards.");
-    return;
-  }
-
-  for (let i = 0; i < numCards; i++) {
-    const randomIndex = Math.floor(Math.random() * deck.length);
-    const randomCard = deck.splice(randomIndex, 1)[0];
-    hand.push(randomCard);
-  }
-
-  renderDeckList();
-  renderHand(hand);
-}
-
-const getRandomCardsButton = document.querySelector('button[data-action="get-random-cards"]');
-getRandomCardsButton.addEventListener("click", () => {
-  getRandomCards(7);
-});
+const addLandButton = document.getElementById("add-land-btn");
+addLandButton.addEventListener("click", addLands);
 
 function drawCard() {
   if (deck.length === 0) {
@@ -160,7 +200,7 @@ function drawCard() {
   renderDeckList();
 }
 
-const drawCardButton = document.querySelector('button[data-action="draw-card"]');
+const drawCardButton = document.getElementById("draw-card-btn");
 drawCardButton.addEventListener("click", drawCard);
 
 
@@ -172,7 +212,7 @@ function returnToDeck() {
   renderHand(hand);
 }
 
-const returnToDeckButton = document.querySelector('button[data-action="return-to-deck"]');
+const returnToDeckButton = document.getElementById("return-to-deck-btn");
 returnToDeckButton.addEventListener("click", returnToDeck);
 
 function clearDeck() {
@@ -183,8 +223,5 @@ function clearDeck() {
   deck = [];
 }
 
-const clearDeckButton = document.querySelector('button[data-action="clear-deck"]');
+const clearDeckButton = document.getElementById("clear-deck-btn");
 clearDeckButton.addEventListener("click", clearDeck);
-
-
-
