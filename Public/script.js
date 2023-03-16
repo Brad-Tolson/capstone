@@ -70,18 +70,30 @@ const defaultDeck = [ "Arid Mesa",
 
 let deck = defaultDeck;
 
-function renderHand(cards) {
+async function renderHand(cards) {
   const handElement = document.getElementById("hand-container");
   handElement.innerHTML = "";
 
-  cards.forEach(card => {
-    const cardElement = document.createElement("div");
+  for (const card of cards) {
+    const cardElement = document.createElement("img");
     cardElement.classList.add("card");
-    cardElement.textContent = card;
+    cardElement.style.width = "250px"; // set width to desired size
+    cardElement.style.height = "350px"; // set height to desired size
+    const imageUrl = await getCardImageUrl(card);
+    cardElement.src = imageUrl;
 
     handElement.appendChild(cardElement);
-  });
+  }
 }
+
+async function getCardImageUrl(cardName) {
+  const response = await fetch(`https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(cardName)}`);
+  const cardData = await response.json();
+  return cardData.image_uris.normal;
+}
+
+
+
 
 function renderDeckList() {
   deckList.innerHTML = "";
